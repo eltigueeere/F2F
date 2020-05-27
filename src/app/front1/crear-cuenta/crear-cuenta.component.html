@@ -1,0 +1,101 @@
+<div class="container">
+<fieldset class="scheduler-border">
+        <legend class="scheduler-border heading-hr texto-primary"> Crear una cuenta nueva. </legend>
+        <h5>Los campos con '*' son obligatorios</h5>
+        <form action="<?php echo base_url('nU/newUser/newUserA'); ?>" method="post"> 
+            <div class="row">
+                <div class="col-sm-12 col-md-4" >
+                    <label for="nombreUsuario" class="letrasNavEscritorioRed" placeholder="Nombre" >*Nombre
+                    </label><br>
+                    <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre" required >
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label for="apellidoUsuario" class="letrasNavEscritorioRed">*Apellido
+                    </label><br>
+                    <input type="text" class="form-control" name="apellidoUsuario" id="apellidoUsuario" placeholder="Apellido" required>
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label for="genero" class="letrasNavEscritorioRed" >*Genero
+                    </label><br>
+                    <select class="form-control" name="genero" name="genero" id="genero" required>
+                        <option value="" disabled selected>Genero</option>
+                        <option vlaue="1">Hombre</option>
+                        <option vlaue="2">Mujer</option>
+                        <option vlaue="3">Otro</option>
+                    </select>
+                </div>
+            </div> <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-4" >
+                    <label for="dia" class="letrasNavEscritorioRed" >*Dia de nacimiento
+                    </label><br>
+                    <select class="form-control" name="dia" id="dia" required>
+                    <option value="" disabled selected>Dia</option>
+                    </select>
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label for="mes" class="letrasNavEscritorioRed" >*Mes de nacimiento
+                    </label><br>
+                    <select class="form-control" name="mes" id="mes" required>
+                        <option value="" disabled selected>Mes</option>
+                        <option value="Enreo"> Enreo </option>
+                        <option value="Febreo"> Febreo </option>
+                        <option value="Marzo"> Marzo </option>
+                        <option value="Abril"> Abril </option>
+                        <option value="Mayo"> Mayo </option>
+                        <option value="Junio"> Junio </option>
+                        <option value="Juio"> Juio </option>
+                        <option value="Agosto"> Agosto </option>
+                        <option value="Septiembre"> Septiembre </option>
+                        <option value="Octubre"> Octubre </option>
+                        <option value="Noviembre"> Noviembre </option>
+                        <option value="Diciembre"> Diciembre </option>                    
+                    </select>
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label for="ano" class="letrasNavEscritorioRed" >*Año de nacimiento
+                    </label><br>
+                    <select class="form-control" name="year" id="year" required>
+                    <option value="" disabled selected>Año</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-6" >
+                    <label for="numeroTelefono" class="letrasNavEscritorioRed" >*Número de Telefono
+                    </label><br>
+                    <input type="text" class="form-control" name="numeroTelefono" id="numeroTelefono" placeholder="Número de Telefono" required>
+                </div>
+                <div class="col-sm-12 col-md-6" >
+                    <label for="correo" class="letrasNavEscritorioRed" >Correo
+                    </label><br>
+                    <input type="text" class="form-control" name="correo" id="correo" placeholder="correo@dominio.com">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-4" >
+                    <label for="nombreUsuarioAka" class="letrasNavEscritorioRed">Nombre Usuario
+                    </label><br>
+                    <input type="text" class="form-control" name="nombreUsuarioAka" id="nombreUsuarioAka" placeholder="Nombre Usuario" required >
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label class="letrasNavEscritorioRed" for="contrasena1">Confirma Contraseña</label>
+                    <input class="form-control" type="password" name="contrasena1" id="contrasena1" placeholder="Contraseña" minlength="6" maxlength="10" required >
+                </div>
+                <div class="col-sm-12 col-md-4" >
+                    <label class="letrasNavEscritorioRed" for="contrasena2">*Confirma Contraseña</label>
+                    <input class="form-control" type="password" name="contrasena2" id="contrasena2" placeholder="Confirma Contraseña" minlength="6" maxlength="10" required >
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <input class="btn btn-primary btn-block" type="submit" value="Crear Usuario">
+                </div>
+            </div>
+        </form>
+    </fieldset>
+    </div>
+    <br>
