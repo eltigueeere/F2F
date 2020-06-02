@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Usuarios } from '../modelo/usuarios';
 import { Observable } from 'rxjs';
 import { Loginresponse } from '../other/interfaces';
+import { getUserOne } from '../other/getUserOne';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ServiceService {
     
    }
    urlPostUser='http://localhost:3000/usuario';
+   urlPostUserOne='http://localhost:3000/usuario/';
 
    /*login(
     id: number,
@@ -52,5 +54,10 @@ export class ServiceService {
     console.log(values);
     return this._http.post<Loginresponse>(this.urlPostUser, values)
    }
+
+   entrarService(values){
+    console.log("En el service " + this.urlPostUserOne+values.usuario)
+    return this._http.get<getUserOne>(this.urlPostUserOne+values.usuario);
+  }
    
 }

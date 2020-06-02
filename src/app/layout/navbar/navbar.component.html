@@ -38,13 +38,15 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>-->
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Telefono" aria-label="">
-      <input class="form-control mr-sm-2" type="text" placeholder="Contraseña" aria-label="">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
+    <form class="form-inline my-2 my-lg-0" [formGroup]="signupForm" (ngSubmit)="entrar(signupForm.value)">
+      <input class="form-control mr-sm-2" formControlName="usuario" type="text" placeholder="Telefono" aria-label="">
+      <input class="form-control mr-sm-2" formControlName="contrasena" type="password" placeholder="Contraseña" aria-label="">
+      <button class="btn btn-outline-success my-2 my-sm-0" [disabled] = "signupForm.invalid"  type="submit" >Entrar</button>
     </form>
   </div>
 </nav>
 <br>
 <br>
 <hr>
+
+{{ userOne }}
