@@ -10,6 +10,10 @@ import { NosotrosComponent } from './front1/nosotros/nosotros.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { CrearCuentaComponent } from './front1/crear-cuenta/crear-cuenta.component';
+import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceService } from '../app/Service/service.service';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -18,15 +22,19 @@ import { CrearCuentaComponent } from './front1/crear-cuenta/crear-cuenta.compone
     NavbarComponent,
     WelcomeComponent,
     NosotrosComponent,
-    CrearCuentaComponent
+    CrearCuentaComponent,
+    ListarUsuariosComponent
   ],
   imports: [
     MatSliderModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
