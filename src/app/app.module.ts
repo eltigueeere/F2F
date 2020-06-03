@@ -13,7 +13,8 @@ import { CrearCuentaComponent } from './front1/crear-cuenta/crear-cuenta.compone
 import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioComponent } from './front2/panel/usuario/usuario.component'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeComponent,
     NosotrosComponent,
     CrearCuentaComponent,
-    ListarUsuariosComponent
+    ListarUsuariosComponent,
+    UsuarioComponent
   ],
   imports: [
     MatSliderModule,
