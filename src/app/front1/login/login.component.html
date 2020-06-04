@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<div class="container">  
+<fieldset class="scheduler-border">
+        <legend class="scheduler-border heading-hr texto-primary"> Ingresa con tu nueva cuenta. </legend>
+    <form class="formGroup" [formGroup]="signupForm" (ngSubmit)="entrar(signupForm.value)">
+      <input class="form-control " formControlName="usuario" type="text" placeholder="Usuario" aria-label="">
+      <input class="form-control " formControlName="contrasena" type="password" placeholder="Contraseña" aria-label="">
+      <button class="btn btn-outline-success " [disabled] = "signupForm.invalid"  type="submit" >Entrar</button>
+    </form>
+</fieldset>
+</div>
+<br>
+<br>
+<app-footer></app-footer>

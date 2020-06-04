@@ -1,7 +1,6 @@
 
-
   <nav class="fondo-primary navbar fixed-top navbar-expand-lg navbar-light ">
-  <a class="navbar-brand texto-primary" href="#">F2F</a>
+  <a class="navbar-brand texto-primary" href="#">F2F <small>Inicio</small> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -39,7 +38,7 @@
       </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0" [formGroup]="signupForm" (ngSubmit)="entrar(signupForm.value)">
-      <input class="form-control mr-sm-2" formControlName="usuario" type="text" placeholder="Telefono" aria-label="">
+      <input class="form-control mr-sm-2" formControlName="nombreUsuario" type="text" placeholder="Usuario" aria-label="">
       <input class="form-control mr-sm-2" formControlName="contrasena" type="password" placeholder="Contraseña" aria-label="">
       <button class="btn btn-outline-success my-2 my-sm-0" [disabled] = "signupForm.invalid"  type="submit" >Entrar</button>
     </form>

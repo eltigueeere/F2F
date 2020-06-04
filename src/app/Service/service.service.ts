@@ -1,63 +1,48 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuarios } from '../modelo/usuarios';
-import { Observable } from 'rxjs';
-import { Loginresponse } from '../other/interfaces';
+import { Observable, throwError } from 'rxjs';
+import { Loginresponse, los_valoreslos_valores } from '../other/interfaces';
 import { getUserOne } from '../other/getUserOne';
-
+import { retry, catchError } from 'rxjs/operators';
+import { CrearCuentaComponent } from '../front1/crear-cuenta/crear-cuenta.component';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+  los_valoreslos_valores: object;
 
-  constructor(private _http:HttpClient) {
-    
-   }
+  constructor(
+    private _http:HttpClient
+    ) {   }
+
    urlPostUser='http://localhost:3000/usuario';
    urlPostUserOne='http://localhost:3000/usuario/';
-
-   /*login(
-    id: number,
-    nombre: string,
-    apellido: string,
-    genero: string,
-    dia: number,
-    mes: number,
-    year: number,
-    telefono: string,
-    correo: string,
-    nombreUsuario: string,
-    contrasena: string,
-    fechaUp: string,
-    rolUsuario: number
-   ):Observable<Loginresponse>{
-
-    return this._http.post<Loginresponse>(this.urlPostUser, {
-      id: id,
-      nombre: nombre,
-      apellido: apellido,
-      genero: genero,
-      dia: dia,
-      mes: mes,
-      year: year,
-      telefono: telefono,
-      correo: correo,
-      nombreUsuario: nombreUsuario,
-      contrasena: contrasena,
-      fechaUp: fechaUp,
-      rolUsuario: rolUsuario
-    })
-   }*/
+   urlGetCelOne='http://localhost:3000/usuarioTelefono/';
 
    login(values):Observable<Loginresponse>{
-    console.log("Desde el service");
+    console.log("Guardando usuario:");
     console.log(values);
     return this._http.post<Loginresponse>(this.urlPostUser, values)
    }
 
    entrarService(values){
-    console.log("En el service " + this.urlPostUserOne+values.usuario)
-    return this._http.get<getUserOne>(this.urlPostUserOne+values.usuario);
+    console.log("En el service " + this.urlPostUserOne+values.nombreUsuario)
+    return this._http.get<getUserOne>(this.urlPostUserOne+values.nombreUsuario);
   }
-   
+
+  
+
+  checarNombreUser(values){
+    this.los_valoreslos_valores = values;
+    console.log("checarNombreUser "+this.los_valoreslos_valores);
+    console.log("En el service " + this.urlPostUserOne+values.nombreUsuario)
+    return this._http.get<getUserOne>(this.urlPostUserOne+values.nombreUsuario);
+  }
+  
+  checarTelefono(values){
+    console.log("checarTelefono");
+    console.log("En el service " + this.urlGetCelOne+values.telefono)
+    return this._http.get<getUserOne>(this.urlGetCelOne+values.telefono);    
+  }
 }

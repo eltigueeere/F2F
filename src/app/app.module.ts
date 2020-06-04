@@ -14,7 +14,8 @@ import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
-import { UsuarioComponent } from './front2/panel/usuario/usuario.component'; 
+import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
+import { LoginComponent } from './front1/login/login.component'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
     NosotrosComponent,
     CrearCuentaComponent,
     ListarUsuariosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    LoginComponent
   ],
   imports: [
     MatSliderModule,

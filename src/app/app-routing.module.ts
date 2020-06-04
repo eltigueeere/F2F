@@ -5,9 +5,11 @@ import { NosotrosComponent } from './front1/nosotros/nosotros.component';
 import { CrearCuentaComponent } from './front1/crear-cuenta/crear-cuenta.component';
 import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuarios.component';
 import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
+import { LoginComponent } from './front1/login/login.component';
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'adminUsuario', component: UsuarioComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'nosotros', component: NosotrosComponent },

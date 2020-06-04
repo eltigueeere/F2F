@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from 'src/app/Service/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,12 +14,13 @@ export class NavbarComponent implements OnInit {
   
   constructor(
     private _builder: FormBuilder,
-    private _servicio: ServiceService
+    private _servicio: ServiceService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
     this.signupForm = this._builder.group({
-      usuario: ['',Validators.required],
+      nombreUsuario: ['',Validators.required],
       contrasena: ['',Validators.required]
     })    
   }
@@ -26,22 +28,36 @@ export class NavbarComponent implements OnInit {
   entrar(values){
     console.log(values);
     this._servicio.entrarService(values).subscribe(data => {
-      console.log(data.id);
-      console.log(data.nombre);
-      console.log(data.apellido);
-      console.log(data.genero);
-      console.log(data.dia);
-      console.log(data.mes);
-      console.log(data.year);
-      console.log(data.telefono);
-      console.log(data.correo);
-      console.log(data.nombreUsuario);
-      console.log(data.contrasena);
-      console.log(data.fechaUp);
-      console.log(data.rolUsuario);
+      if(data != null){
+        if(data.contrasena == btoa(values.contrasena)){
+          if(data.rolUsuario == 2){
+            this.router.navigate(['adminUsuario']);
+          } else{
+            console.log("Eres admin");
+          }
+        }else{
+          alert("Contraseña incorrecta");
+        }
+      }else{
+        alert("Usuario incorrecto.")
+      }
     })
   }
 
-
-
 }
+
+
+
+/*console.log(data.id)
+console.log(data.nombre);
+console.log(data.apellido);
+console.log(data.genero);
+console.log(data.dia);
+console.log(data.mes);
+console.log(data.year);
+console.log(data.telefono);
+console.log(data.correo);
+console.log(data.nombreUsuario);
+console.log(data.contrasena);
+console.log(data.fechaUp);
+console.log(data.rolUsuario);*/
