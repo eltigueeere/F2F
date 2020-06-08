@@ -28,10 +28,11 @@ export class NavbarComponent implements OnInit {
   entrar(values){
     console.log(values);
     this._servicio.entrarService(values).subscribe(data => {
+      console.log("En el controller data --> " + data);
       if(data != null){
         if(data.contrasena == btoa(values.contrasena)){
           if(data.rolUsuario == 2){
-            this.router.navigate(['adminUsuario']);
+            this.router.navigate(['adminUsuario/'+data.nombreUsuario]);
           } else{
             console.log("Eres admin");
           }
@@ -45,19 +46,3 @@ export class NavbarComponent implements OnInit {
   }
 
 }
-
-
-
-/*console.log(data.id)
-console.log(data.nombre);
-console.log(data.apellido);
-console.log(data.genero);
-console.log(data.dia);
-console.log(data.mes);
-console.log(data.year);
-console.log(data.telefono);
-console.log(data.correo);
-console.log(data.nombreUsuario);
-console.log(data.contrasena);
-console.log(data.fechaUp);
-console.log(data.rolUsuario);*/

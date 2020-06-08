@@ -1,4 +1,4 @@
-export class getUserOne {
+export class getUserForAdmin{
     id: number;
     nombre: String;
     apellido: String;
@@ -12,5 +12,8 @@ export class getUserOne {
     contrasena: String;
     fechaUp: String;
     rolUsuario: number;
-}
-
+    en_cuenta: number;
+    fecha_up_encuenta: String;
+    retiro: number;
+    fecha_up_retiro: String;
+}   

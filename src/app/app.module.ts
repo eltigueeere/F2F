@@ -15,7 +15,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
-import { LoginComponent } from './front1/login/login.component'; 
+import { LoginComponent } from './front1/login/login.component';
+import { AsideComponent } from './front2/layout/aside/aside.component';
+import { EventosRectanguloComponent } from './front2/eventos-rectangulo/eventos-rectangulo.component';
+import { ApuestasComponent } from './front2/apuestas/apuestas.component';
+import { FooterF2Component } from './front2/layout/footer-f2/footer-f2.component';
+import { NavbarF2Component } from './front2/layout/navbar-f2/navbar-f2.component'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { LoginComponent } from './front1/login/login.component';
     CrearCuentaComponent,
     ListarUsuariosComponent,
     UsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    AsideComponent,
+    EventosRectanguloComponent,
+    ApuestasComponent,
+    FooterF2Component,
+    NavbarF2Component
   ],
   imports: [
     MatSliderModule,

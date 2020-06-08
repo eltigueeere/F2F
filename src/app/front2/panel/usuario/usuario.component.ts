@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-usuario',
@@ -7,36 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor() { }
+  @Input('usuario') data: any
+
+  constructor(
+    private _route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+
+    console.log((this._route.snapshot.paramMap.get('nombreUsuario')));
     
   }
 
-  sumaApuesta1R=0;
-  sumaApuesta1L=0;
-  sumaApuesta2R=0;
-  sumaApuesta2L=0;
   
-  apuesta1R(){
-    this.sumaApuesta1R +=1;
-    return this.sumaApuesta1R;
-  }
-
-  apuesta1L(){
-    this.sumaApuesta1L +=1;
-    return this.sumaApuesta1L;
-  }
-
-  apuesta2R(){
-    this.sumaApuesta2R +=1;
-    return this.sumaApuesta2R;
-
-  }
-
-  apuesta2L(){
-    this.sumaApuesta2L +=1;
-    return this.sumaApuesta2L;
-  }
 
 }

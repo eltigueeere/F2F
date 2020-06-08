@@ -1,0 +1,88 @@
+      
+  <!-- PRODUCT LIST -->
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Apuesta Colibri VS Parral "Apuesta 1"</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+    <!--<p>Hola mundo</p>-->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer text-center">
+      <div class="row">
+        <div class="col-5 col-md-5 verde">
+          <img class="" src="../../../assets/front1/img/elColibri.jpg" width="130" height="95"><a href="../../../assets/front1/img/elColibri.jpg" class="b-btn f-btn b-btn-light f-btn-light info fancybox" title="Como hacer depocitos en efectivo para apostar"><i class="fa fa-arrows-alt"></i></a>
+          <p class="texto-primary centro">Parral</p>
+        </div>
+        <div class="col-2 col-md-2 blanco">
+          <img class="blanco" src="../../../assets/front1/img/vs.jpg" width="50" height="50">
+        </div>
+        <div class="col-5 col-md-5 rojo">
+          <img class="" src="../../../assets/front1/img/parral.jpg" width="130" height="90"><a href="../../../assets/front1/img/parral.jpg" class="b-btn f-btn b-btn-light f-btn-light info fancybox" title="Como hacer depocitos en efectivo para apostar"><i class="fa fa-arrows-alt"></i></a>
+          <p class="centro">Colibri</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 col-md-4">
+          El valor de tu apuesta
+        </div>
+        <div class="col-4 col-md-4">
+           Apuesta
+        </div>
+        <div class="col-4 col-md-4">
+          El valor de tu apuesta
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-md-3 verdeDinero">
+          {{ "$"+sumaApuesta1R*500 }}
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button"  class="btn btn-primary" (click)="apuesta1R()"><i class="fas fa-arrow-right"></i> </button>
+        </div>
+        <div class="col-2 col-md-2">
+          $500
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button"  class="btn btn-primary" (click)="apuesta1L()"><i class="fas fa-arrow-left"></i> </button>
+        </div>
+        <div class="col-3 col-md-3 rojoDinero">
+          {{ "$"+sumaApuesta1L*500 }}
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3 col-md-3 verdeDinero">
+          {{ "$"+sumaApuesta2R*1000 }}
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button"  class="btn btn-primary" (click)="apuesta2R()"><i class="fas fa-arrow-right"></i> </button>
+        </div>
+        <div class="col-2 col-md-2">
+          $1k
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button"  class="btn btn-primary" (click)="apuesta2L()"><i class="fas fa-arrow-left"></i> </button>
+        </div>
+        <div class="col-3 col-md-3 rojoDinero">
+          {{ "$"+sumaApuesta2L*1000 }}
+        </div>
+      </div>
+    </div>
+    <!-- /.card-footer -->
+    <br>
+  </div>
+  <!-- /.card -->
+
+  <br>
+  <br>
