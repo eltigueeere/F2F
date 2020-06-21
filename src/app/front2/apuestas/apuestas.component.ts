@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apuestas',
@@ -7,35 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApuestasComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
-  }
-
-  sumaApuesta1R=0;
-  sumaApuesta1L=0;
-  sumaApuesta2R=0;
-  sumaApuesta2L=0;
   
-  apuesta1R(){
-    this.sumaApuesta1R +=1;
-    return this.sumaApuesta1R;
-  }
+  localStorageUserNombre = "";
+  localStorageUserId = "";
 
-  apuesta1L(){
-    this.sumaApuesta1L +=1;
-    return this.sumaApuesta1L;
-  }
-
-  apuesta2R(){
-    this.sumaApuesta2R +=1;
-    return this.sumaApuesta2R;
+  ngOnInit(): void {  
+    this.localStorageUserNombre = JSON.parse(sessionStorage.getItem('usuarioNombre'));
+    this.localStorageUserId = JSON.parse(sessionStorage.getItem('usuarioId'));    
+    if(this.localStorageUserNombre == null || this.localStorageUserId == null ) {
+      this.router.navigate(['login/']);
+    }
 
   }
 
-  apuesta2L(){
-    this.sumaApuesta2L +=1;
-    return this.sumaApuesta2L;
-  }
 
 }

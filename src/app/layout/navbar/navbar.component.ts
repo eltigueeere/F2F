@@ -32,7 +32,9 @@ export class NavbarComponent implements OnInit {
       if(data != null){
         if(data.contrasena == btoa(values.contrasena)){
           if(data.rolUsuario == 2){
-            this.router.navigate(['adminUsuario/'+data.nombreUsuario]);
+            sessionStorage.setItem('usuarioNombre', JSON.stringify(data.nombreUsuario));
+            sessionStorage.setItem('usuarioId', JSON.stringify(data.id));
+            this.router.navigate(['adminUsuario']);
           } else{
             console.log("Eres admin");
           }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
+  localStorageUserNombre = "";
+  localStorageUserId = "";
   ngOnInit(): void {
+    this.localStorageUserNombre = JSON.parse(sessionStorage.getItem('usuarioNombre'));
+    this.localStorageUserId = JSON.parse(sessionStorage.getItem('usuarioId'));    
+    if(this.localStorageUserNombre == null || this.localStorageUserId == null ) {
+      this.router.navigate(['login/']);
+    }
   }
 
 }

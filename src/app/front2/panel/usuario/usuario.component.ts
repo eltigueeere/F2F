@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -8,16 +8,24 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class UsuarioComponent implements OnInit {
 
-  @Input('usuario') data: any
 
   constructor(
-    private _route: ActivatedRoute
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
+  
+  localStorageUserNombre = "";
+  localStorageUserId = "";
 
-    console.log((this._route.snapshot.paramMap.get('nombreUsuario')));
-    
+  ngOnInit(): void {  
+    this.localStorageUserNombre = JSON.parse(sessionStorage.getItem('usuarioNombre'));
+    this.localStorageUserId = JSON.parse(sessionStorage.getItem('usuarioId'));    
+    if(this.localStorageUserNombre == null || this.localStorageUserId == null ) {
+      this.router.navigate(['login/']);
+    }else{
+      console.log(this.localStorageUserNombre + " <---> " + this.localStorageUserId);
+    }
+
   }
 
   

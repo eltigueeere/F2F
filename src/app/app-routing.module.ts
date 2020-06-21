@@ -10,7 +10,8 @@ import { LoginComponent } from './front1/login/login.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'adminUsuario/:nombreUsuario', component: UsuarioComponent },
+  //{ path: 'adminUsuario/:nombreUsuario', component: UsuarioComponent },
+  { path: 'adminUsuario', component: UsuarioComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'crearUsuario', component: CrearCuentaComponent },
