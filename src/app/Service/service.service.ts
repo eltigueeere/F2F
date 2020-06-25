@@ -6,6 +6,7 @@ import { Loginresponse, los_valoreslos_valores } from '../other/interfaces';
 import { getUserOne } from '../other/getUserOne';
 import { retry, catchError } from 'rxjs/operators';
 import { CrearCuentaComponent } from '../front1/crear-cuenta/crear-cuenta.component';
+import { getApuestasJoin } from '../other/apuestasJoion';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +20,7 @@ export class ServiceService {
    urlPostUser='http://localhost:3000/usuario';
    urlPostUserOne='http://localhost:3000/usuario/';
    urlGetCelOne='http://localhost:3000/usuarioTelefono/';
+   urlGetApuestasJoin = 'http://localhost:3000/apuestas';
 
    login(values):Observable<Loginresponse>{
     console.log("Guardando usuario:");
@@ -44,5 +46,10 @@ export class ServiceService {
     console.log("checarTelefono");
     console.log("En el service " + this.urlGetCelOne+values.telefono)
     return this._http.get<getUserOne>(this.urlGetCelOne+values.telefono);    
+  }
+
+  apuestasJoin(){
+    console.log("En el service " + this.urlGetApuestasJoin)
+    return this._http.get<getApuestasJoin>(this.urlGetApuestasJoin);
   }
 }
