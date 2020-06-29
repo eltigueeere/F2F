@@ -3,7 +3,12 @@ export class getApuestasJoin{
     id: number;
     id_usuario: number;
     apuesta_color: String;
-    cantidad: number;
+    mil : number;
+    dosMil : number;
+    tresMil : number;
+    cuatroMil : number;
+    cincoMil : number;
+    otra : number;
     hora_hizo_postura: String;
     idApuesta: number;
     nombreVerde: String;

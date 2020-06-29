@@ -1,6 +1,7 @@
-      
-  <!-- PRODUCT LIST -->
-  <div class="card">
+<li *ngFor="let apuesta of apuestas">{{apuesta.nombreRojo}}</li>
+<br><br><br>
+
+  <div class="card" ng-repeat="apuesta in apuestas" >
     <div class="card-header">
       <h3 class="card-title">Apuesta Colibri VS Parral</h3>
       <div class="card-tools">

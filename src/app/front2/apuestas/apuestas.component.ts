@@ -17,6 +17,7 @@ export class ApuestasComponent implements OnInit {
   
   localStorageUserNombre = "";
   localStorageUserId = "";
+  apuestas={};
 
   ngOnInit(): void {  
     this.localStorageUserNombre = JSON.parse(sessionStorage.getItem('usuarioNombre'));
@@ -32,53 +33,9 @@ export class ApuestasComponent implements OnInit {
   
   cargarApuestas(){
     this._servicio.apuestasJoin().subscribe(data =>{
-      var apuestas = new Array(Object.keys(data).length);
-      var idApuestaId = data[0].idApuesta;
-      var indiceApuestas=0, mil=0, dosMil=0, tresMil=0, cuatroMil=0, cincoMil=0;
       console.log(data);
-      for(var i=0; i < Object.keys(data).length; i++){
-        if( idApuestaId == data[i].idApuesta ){
-          if(data[i].cantidad == 1000){
-            mil++;
-          } else if(data[i].cantidad == 2000){
-            dosMil++;
-          }else if(data[i].cantidad =  3000 ){
-            tresMil++;
-          } else if(data[i].cantidad = 4000){
-            cuatroMil++;
-          } else{
-            cincoMil++;
-          }
-          apuestas[indiceApuestas]=
-          [
-            data[i].apuesta_color,
-            data[i].cantidad,
-            data[i].favoritoRojo,
-            data[i].favoritoVerde,
-            data[i].hora_hizo_postura,
-            data[i].id,
-            data[i].idApuesta,
-            data[i].id_usuario,
-            data[i].nombreRojo,
-            data[i].nombreVerde,
-            data[i].pago,
-            data[i].status,
-            data[i].imgV,
-            data[i].imgR,
-            mil,
-            dosMil,
-            tresMil,
-            cuatroMil,
-            cincoMil
-          ]
-        } else{
-          idApuestaId = data[i].idApuesta;
-          indiceApuestas++;
-        }
-       
-        
-      }
-      console.log(apuestas);
+      this.apuestas = data;
+
     })
   }
 
