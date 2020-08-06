@@ -9,7 +9,7 @@ export class getApuestasJoin{
     cuatroMil : number;
     cincoMil : number;
     otra : number;
-    hora_hizo_postura: String;
+    hora: String;
     idApuesta: number;
     nombreVerde: String;
     nombreRojo: String;

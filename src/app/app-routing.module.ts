@@ -6,9 +6,11 @@ import { CrearCuentaComponent } from './front1/crear-cuenta/crear-cuenta.compone
 import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuarios.component';
 import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
 import { LoginComponent } from './front1/login/login.component';
+import { PeleaApuestaComponent } from './front2/pelea-apuesta/pelea-apuesta.component';
 
 
 const routes: Routes = [
+  { path: 'pelea/:id', component: PeleaApuestaComponent },
   { path: 'login', component: LoginComponent },
   //{ path: 'adminUsuario/:nombreUsuario', component: UsuarioComponent },
   { path: 'adminUsuario', component: UsuarioComponent },

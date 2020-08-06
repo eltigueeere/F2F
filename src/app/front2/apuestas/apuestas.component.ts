@@ -11,7 +11,7 @@ export class ApuestasComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _servicio: ServiceService
+    private _servicio: ServiceService,
   ) { }
 
   
@@ -35,7 +35,6 @@ export class ApuestasComponent implements OnInit {
     this._servicio.apuestasJoin().subscribe(data =>{
       console.log(data);
       this.apuestas = data;
-
     })
   }
 

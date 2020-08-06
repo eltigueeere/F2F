@@ -20,7 +20,8 @@ import { AsideComponent } from './front2/layout/aside/aside.component';
 import { EventosRectanguloComponent } from './front2/eventos-rectangulo/eventos-rectangulo.component';
 import { ApuestasComponent } from './front2/apuestas/apuestas.component';
 import { FooterF2Component } from './front2/layout/footer-f2/footer-f2.component';
-import { NavbarF2Component } from './front2/layout/navbar-f2/navbar-f2.component'; 
+import { NavbarF2Component } from './front2/layout/navbar-f2/navbar-f2.component';
+import { PeleaApuestaComponent } from './front2/pelea-apuesta/pelea-apuesta.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NavbarF2Component } from './front2/layout/navbar-f2/navbar-f2.component
     EventosRectanguloComponent,
     ApuestasComponent,
     FooterF2Component,
-    NavbarF2Component
+    NavbarF2Component,
+    PeleaApuestaComponent
   ],
   imports: [
     MatSliderModule,

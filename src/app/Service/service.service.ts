@@ -21,6 +21,7 @@ export class ServiceService {
    urlPostUserOne='http://localhost:3000/usuario/';
    urlGetCelOne='http://localhost:3000/usuarioTelefono/';
    urlGetApuestasJoin = 'http://localhost:3000/apuestas';
+   urlGetApuestaId = 'http://localhost:3000/apuestasId/';
 
    login(values):Observable<Loginresponse>{
     console.log("Guardando usuario:");
@@ -51,5 +52,10 @@ export class ServiceService {
   apuestasJoin(){
     console.log("En el service " + this.urlGetApuestasJoin)
     return this._http.get<getApuestasJoin>(this.urlGetApuestasJoin);
+  }
+
+  apuestasJoinId(values){
+    console.log("En el service " + this.urlGetApuestaId)
+    return this._http.get<getApuestasJoin>(this.urlGetApuestaId+values);
   }
 }
