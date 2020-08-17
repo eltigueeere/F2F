@@ -22,6 +22,7 @@ export class ServiceService {
    urlGetCelOne='http://localhost:3000/usuarioTelefono/';
    urlGetApuestasJoin = 'http://localhost:3000/apuestas';
    urlGetApuestaId = 'http://localhost:3000/apuestasId/';
+   urlPostPosturas = 'http://localhost:3000/posturas';
 
    login(values):Observable<Loginresponse>{
     console.log("Guardando usuario:");
@@ -58,4 +59,10 @@ export class ServiceService {
     console.log("En el service " + this.urlGetApuestaId)
     return this._http.get<getApuestasJoin>(this.urlGetApuestaId+values);
   }
+
+  savePostura(values):Observable<Loginresponse>{
+    console.log("Guardando Postura:");
+    console.log(values);
+    return this._http.post<Loginresponse>(this.urlPostPosturas, values)
+   }
 }

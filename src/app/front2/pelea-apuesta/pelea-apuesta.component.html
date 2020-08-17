@@ -3,12 +3,306 @@
     <div class="content-wrapper">
     <app-navbar-f2></app-navbar-f2>  <!--no puja--> 
     <app-aside></app-aside> <!--pujamucho-->
-    {{info}}
-    <br>
-    {{apuestaV}}
-    <br>
-    {{apuestaR}}
+    <div class="container">
+      <div class="row">
+        <div class="col-5 col-md-5 verde igmT">
+          <img class="" src="../../../assets/front1/img/{{info.imgV}}" width="100" height="90"><a href="../../../assets/front1/img/{{info.imgV}}" class="b-btn f-btn b-btn-light f-btn-light info fancybox" title="Como hacer depocitos en efectivo parde apuesta"><i class="fa fa-arrows-alt"></i></a>
+          <p class="txtoNegro centro">{{info.nombreVerde}}</p>
+        </div>
+        <div class="col-2 col-md-2 blanco">
+          <img class="blanco" src="../../../assets/front1/img/vs.jpg" width="50" height="50">
+          <p class="txtoNegro centro">{{info.pago}}</p>
+        </div>
+        <div class="col-5 col-md-5 rojo imgT">
+          <img class="" src="../../../assets/front1/img/{{info.imgR}}" width="100" height="90"><a href="../../../assets/front1/img/{{info.imgR}}" class="b-btn f-btn b-btn-light f-btn-light info fancybox" title="Como hacer depocitos en efectivo parde apuesta"><i class="fa fa-arrows-alt"></i></a>
+          <p class="txtoNegro centro">{{info.nombreRojo}}</p>
+        </div>
+        <!-- tb-->
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Posturas Verdes</th>
+              <th scope="col">Apostar Verde</th>
+              <th scope="col">Apostar Rojo</th>
+              <th scope="col">Posturas Rojas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">{{apuestaV.mil}} Personas</td>
+              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#milVerde">Mil</button></td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#milRojo">Mil</button></td>
+              <td scope="row">{{apuestaR.mil}} Personas</td>
+            </tr>
+            <tr>
+              <td scope="row">{{apuestaV.dosMil}} Personas</td>
+              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#dMilVerde">2Mil</button></td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dMilRojo">2Mil</button></td>
+              <td scope="row">{{apuestaR.dosMil}} Personas</td>
+            </tr>
+            <tr>
+              <td scope="row">{{apuestaV.tresMil}} Personas</td>
+              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#tMilVerde">3Mil</button></td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#tMilRojo">3Mil</button></td>
+              <td scope="row">{{apuestaR.tresMil}} Personas</td>
+            </tr>
+            <tr>
+              <td scope="row">{{apuestaV.cuatroMil}} Personas</td>
+              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#kMilVerde">4Mil</button></td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#kMilRojo">4Mil</button></td>
+              <td scope="row">{{apuestaR.cuatroMil}} Personas</td>
+            </tr>
+            <tr>
+              <td scope="row">{{apuestaV.sincoMil}} Personas</td>
+              <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#cMilVerde">5Mil</button></td>
+              <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cMilRojo">5Mil</button></td>
+              <td scope="row">{{apuestaR.sincoMil}} Personas</td>
+            </tr>
+            <!--<tr>
+              <td scope="row">{{apuestaV.otra}} Personas</td>
+              <td>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Otra</option>
+                  <option value="1">6Mil</option>
+                  <option value="2">7Mil</option>
+                  <option value="3">8Mil</option>
+                </select>
+              </td>
+              <td>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Otra</option>
+                  <option value="1">6Mil</option>
+                  <option value="2">7Mil</option>
+                  <option value="3">8Mil</option>
+                </select>
+              </td>
+              <td scope="row">{{apuestaR.otra}} Personas</td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+    </div>
     <app-footer-f2></app-footer-f2>   <!--no puja--> 
     </div>
   </div>
+
+  <!-- Modal MIL VERDE -->
+  <div class="modal fade" id="milVerde" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $1000.00 MXN al gallo {{info.nombreVerde}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="milVerde()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 MIL VERDE -->
+  <div class="modal fade" id="dMilVerde" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $2000.00 MXN al gallo {{info.nombreVerde}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="dMilVerde()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Modal 3 MIL VERDE -->
+  <div class="modal fade" id="tMilVerde" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $3000.00 MXN al gallo {{info.nombreVerde}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="tMilVerde()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <!-- Modal 4 MIL VERDE -->
+  <div class="modal fade" id="kMilVerde" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $4000.00 MXN al gallo {{info.nombreVerde}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="kMilVerde()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <!-- Modal 5 MIL VERDE -->
+  <div class="modal fade" id="cMilVerde" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $5000.00 MXN al gallo {{info.nombreVerde}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="cMilVerde()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Modal MIL ROJO -->
+  <div class="modal fade" id="milRojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $1000.00 MXN al gallo {{info.nombreRojo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="milRojo()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 MIL Rojo -->
+  <div class="modal fade" id="dMilRojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $2000.00 MXN al gallo {{info.nombreRojo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="dMilRojo()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Modal 3 MIL Rojo -->
+  <div class="modal fade" id="tMilRojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $3000.00 MXN al gallo {{info.nombreRojo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="tMilRojo()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <!-- Modal 4 MIL Rojo -->
+  <div class="modal fade" id="kMilRojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $4000.00 MXN al gallo {{info.nombreRojo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="kMilRojo()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <!-- Modal 5 MIL Rojo -->
+  <div class="modal fade" id="cMilRojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar Apuesta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apostar $5000.00 MXN al gallo {{info.nombreRojo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Atras</button>
+          <button type="button" class="btn btn-primary" (click)="cMilRojo()" data-dismiss="modal">Apostar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>

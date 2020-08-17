@@ -1,0 +1,46 @@
+.verde{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: green;
+    color: green;
+}
+.rojo{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+    color: black;
+}
+
+.blanco{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    color: white;
+}
+
+.verdeDinero{
+    color: green;
+}
+.rojoDinero{
+    margin-left: auto;
+    margin-right: auto;
+    color: red;
+}
+
+.txtoNegro{
+    color: black;
+}
+
+.apuestaverdeFlecha{
+    border: 1px solid black;
+    background: green;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    border-radius: 15px;
+}
+
+.centrado{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
