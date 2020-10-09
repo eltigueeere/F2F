@@ -23,6 +23,7 @@ export class ServiceService {
    urlGetApuestasJoin = 'http://localhost:3000/apuestas';
    urlGetApuestaId = 'http://localhost:3000/apuestasId/';
    urlPostPosturas = 'http://localhost:3000/posturas';
+   urlPostPosturasRoja = 'http://localhost:3000/posturasRoja';
 
    login(values):Observable<Loginresponse>{
     console.log("Guardando usuario:");
@@ -35,7 +36,7 @@ export class ServiceService {
     return this._http.get<getUserOne>(this.urlPostUserOne+values.nombreUsuario);
   }
 
-  
+
 
   checarNombreUser(values){
     this.los_valoreslos_valores = values;
@@ -43,11 +44,11 @@ export class ServiceService {
     console.log("En el service " + this.urlPostUserOne+values.nombreUsuario)
     return this._http.get<getUserOne>(this.urlPostUserOne+values.nombreUsuario);
   }
-  
+
   checarTelefono(values){
     console.log("checarTelefono");
     console.log("En el service " + this.urlGetCelOne+values.telefono)
-    return this._http.get<getUserOne>(this.urlGetCelOne+values.telefono);    
+    return this._http.get<getUserOne>(this.urlGetCelOne+values.telefono);
   }
 
   apuestasJoin(){
@@ -64,5 +65,12 @@ export class ServiceService {
     console.log("Guardando Postura:");
     console.log(values);
     return this._http.post<Loginresponse>(this.urlPostPosturas, values)
+   }
+
+
+  savePosturaRoja(values):Observable<Loginresponse>{
+    console.log("Guardando Postura:");
+    console.log(values);
+    return this._http.post<Loginresponse>(this.urlPostPosturasRoja, values)
    }
 }

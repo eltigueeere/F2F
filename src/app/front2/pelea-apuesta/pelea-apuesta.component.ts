@@ -15,7 +15,7 @@ export class PeleaApuestaComponent implements OnInit {
     private router: Router,
     private _ActiveRoute: ActivatedRoute,
     private _servicio: ServiceService
-  ) { 
+  ) {
   }
   //////////////////////////////////////////////////////////
   localStorageUserNombre = "";
@@ -49,7 +49,7 @@ export class PeleaApuestaComponent implements OnInit {
     otra:"0"
   };
 
-  posturaGuardar = {  
+  /*posturaGuardar = {
   id:"",
   id_usuario:"",
   id_apuesta:"",
@@ -62,11 +62,23 @@ export class PeleaApuestaComponent implements OnInit {
   cantidadOtra:0,
   hora_hizo_postura:"",
   cerrado:0
+  }*/
+  posturaGuardar1 = {
+    id_tb_posturas1: "",//
+    id_apuesta: "",//
+    id_usuario_V: "",//
+    color_Apuesta_Verde: "",//
+    monto_V: "",//
+    id_usuario_R: "",
+    color_Apuesta_Rojo: "",
+    monto_R: "",
+    fecha:""
   }
+
   //////////////////////////////////////////////////////////
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.localStorageUserNombre = JSON.parse(sessionStorage.getItem('usuarioNombre'));
-    this.localStorageUserId = JSON.parse(sessionStorage.getItem('usuarioId'));    
+    this.localStorageUserId = JSON.parse(sessionStorage.getItem('usuarioId'));
     if(this.localStorageUserNombre == null || this.localStorageUserId == null ) {
       this.router.navigate(['login/']);
     } else{
@@ -83,120 +95,114 @@ export class PeleaApuestaComponent implements OnInit {
       this.info.nombreVerde = data[0].nombreVerde;
       this.info.nombreRojo = data[0].nombreRojo;
       this.info.hora = String(data[0].hora);
-      this.info.favoritoVerde = String(data[0].favoritoVerde);  
+      this.info.favoritoVerde = String(data[0].favoritoVerde);
       this.info.favoritoRojo = String(data[0].favoritoRojo);
       this.info.pago = String(data[0].pago);
-      this.info.imgV = String(data[0].imgV);   
-      this.info.imgR = String(data[0].imgR);    
+      this.info.imgV = String(data[0].imgV);
+      this.info.imgR = String(data[0].imgR);
       //llenando apuestaV object
-      this.apuestaR.mil = String(data[0].mil);
-      this.apuestaR.dosMil = String(data[0].dosMil);
-      this.apuestaR.tresMil = String(data[0].tresMil);
-      this.apuestaR.cuatroMil = String(data[0].cuatroMil);
-      this.apuestaR.sincoMil = String(data[0].sincoMil);
+      this.apuestaR.mil = String(data[0].milRojo);
+      this.apuestaR.dosMil = String(data[0].dMilRojo);
+      this.apuestaR.tresMil = String(data[0].tMilRojo);
+      this.apuestaR.cuatroMil = String(data[0].kMilRojo);
+      this.apuestaR.sincoMil = String(data[0].cMilRojo);
       this.apuestaR.otra = String(data[0].otra);
       //llenando apuestaR object
-      this.apuestaV.mil = String(data[1].mil);
-      this.apuestaV.dosMil = String(data[1].dosMil);
-      this.apuestaV.tresMil = String(data[1].tresMil);
-      this.apuestaV.cuatroMil = String(data[1].cuatroMil);
-      this.apuestaV.sincoMil = String(data[1].sincoMil);
-      this.apuestaV.otra = String(data[1].otra);
+      this.apuestaV.mil = String(data[0].milVerde);
+      this.apuestaV.dosMil = String(data[0].dMilVerde);
+      this.apuestaV.tresMil = String(data[0].tMilVerde);
+      this.apuestaV.cuatroMil = String(data[0].kMilVerde);
+      this.apuestaV.sincoMil = String(data[0].cMilVerde);
+      this.apuestaV.otra = String(data[0].otra);
+      console.log(data);
     })
     console.log(this.apuestaR);
   }
-
+//De aqui corte
   milVerde(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="verde",
-    this.posturaGuardar.cantidadMil=1,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Verde="verde",
+    this.posturaGuardar1.monto_V="1000",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.color_Apuesta_Rojo="0",
+    this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
   }
-  dMilVerde(){    
+
+
+  dMilVerde(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="verde",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=1,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Verde="verde",
+    this.posturaGuardar1.monto_V="2000",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.color_Apuesta_Rojo="0",
+    this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
   }
+
+
   tMilVerde(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="verde",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=1,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Verde="verde",
+    this.posturaGuardar1.monto_V="3000",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.color_Apuesta_Rojo="0",
+    this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
   }
+
+
   kMilVerde(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="verde",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=1,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Verde="verde",
+    this.posturaGuardar1.monto_V="4000",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.color_Apuesta_Rojo="0",
+    this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
   }
-  cMilVerde(){    
+
+
+  cMilVerde(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="verde",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=1,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Verde="verde",
+    this.posturaGuardar1.monto_V="5000",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.color_Apuesta_Rojo="0",
+    this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
@@ -205,99 +211,91 @@ export class PeleaApuestaComponent implements OnInit {
 
   milRojo(){
     var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="rojo",
-    this.posturaGuardar.cantidadMil=1,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
-    console.log("El server Response" + response);
-    })
-    window.location.reload();
-  }
-  dMilRojo(){    
-    var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="rojo",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=1,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
-    console.log("El server Response" + response);
-    })
-    window.location.reload();
-  }
-  tMilRojo(){    
-    var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="rojo",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=1,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
-    console.log("El server Response" + response);
-    })
-    window.location.reload();
-  }
-  kMilRojo(){    
-    var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="rojo",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=1,
-    this.posturaGuardar.cantidadCincoMil=0,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
-    console.log("El server Response" + response);
-    })
-    window.location.reload();
-  }
-  cMilRojo(){    
-    var fecha = new Date();
-    this.posturaGuardar.id="",
-    this.posturaGuardar.id_usuario=this.localStorageUserId,
-    this.posturaGuardar.id_apuesta=this.id,
-    this.posturaGuardar.apuesta_color="rojo",
-    this.posturaGuardar.cantidadMil=0,
-    this.posturaGuardar.cantidadDosMil=0,
-    this.posturaGuardar.cantidadTresMil=0,
-    this.posturaGuardar.cantidadCuatroMil=0,
-    this.posturaGuardar.cantidadCincoMil=1,
-    this.posturaGuardar.cantidadOtra=0,
-    this.posturaGuardar.hora_hizo_postura=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
-    this.posturaGuardar.cerrado=0
-    this._servicio.savePostura(this.posturaGuardar).subscribe(response => {
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V="",
+    this.posturaGuardar1.color_Apuesta_Verde="0",
+    this.posturaGuardar1.monto_V="",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Rojo="rojo",
+    this.posturaGuardar1.monto_R="1000",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
     })
     window.location.reload();
   }
 
 
-}
+  dMilRojo(){
+    var fecha = new Date();
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V="",
+    this.posturaGuardar1.color_Apuesta_Verde="0",
+    this.posturaGuardar1.monto_V="",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Rojo="rojo",
+    this.posturaGuardar1.monto_R="2000",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
+    console.log("El server Response" + response);
+    })
+    window.location.reload();
+  }
+
+
+  tMilRojo(){
+    var fecha = new Date();
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V="",
+    this.posturaGuardar1.color_Apuesta_Verde="0",
+    this.posturaGuardar1.monto_V="",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Rojo="rojo",
+    this.posturaGuardar1.monto_R="3000",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
+    console.log("El server Response" + response);
+    })
+    window.location.reload();
+  }
+
+
+  kMilRojo(){
+    var fecha = new Date();
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V="",
+    this.posturaGuardar1.color_Apuesta_Verde="0",
+    this.posturaGuardar1.monto_V="",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Rojo="rojo",
+    this.posturaGuardar1.monto_R="4000",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
+    console.log("El server Response" + response);
+    })
+    window.location.reload();
+  }
+
+
+  cMilRojo(){
+    var fecha = new Date();
+    this.posturaGuardar1.id_tb_posturas1="";
+    this.posturaGuardar1.id_usuario_V="",
+    this.posturaGuardar1.color_Apuesta_Verde="0",
+    this.posturaGuardar1.monto_V="",
+    this.posturaGuardar1.id_apuesta=this.id,
+    this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
+    this.posturaGuardar1.color_Apuesta_Rojo="rojo",
+    this.posturaGuardar1.monto_R="5000",
+    this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
+    this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
+    console.log("El server Response" + response);
+    })
+    window.location.reload();
+  }
+  }
+
