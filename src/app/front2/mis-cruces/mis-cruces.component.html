@@ -1,0 +1,30 @@
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <app-navbar-f2></app-navbar-f2>  <!--no puja--> 
+                <app-aside></app-aside> <!--pujamucho-->
+                <!--WEB-->
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Pelea</th>
+                        <th scope="col">Aposto Verde</th>
+                        <th scope="col">Aposto Rojo</th>
+                        <th scope="col">Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cs of creces_show">
+                        <tr>
+                        <th scope="row">{{cs.nombreVerde}} VS {{cs.nombreRojo}}</th>
+                        <td>{{cs.nombre_V}}</td>
+                        <td>{{cs.nombre_R}}</td>
+                        <td>{{cs.monto_R}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--WEB-->
+            <app-footer-f2></app-footer-f2>   <!--no puja--> 
+        </div>
+    </div> 
+</div>

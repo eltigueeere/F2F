@@ -24,6 +24,7 @@ export class ServiceService {
    urlGetApuestaId = 'http://localhost:3000/apuestasId/';
    urlPostPosturas = 'http://localhost:3000/posturas';
    urlPostPosturasRoja = 'http://localhost:3000/posturasRoja';
+   urlGetMisCruces='http://localhost:3000/cruces/';
 
    login(values):Observable<Loginresponse>{
     console.log("Guardando usuario:");
@@ -73,4 +74,13 @@ export class ServiceService {
     console.log(values);
     return this._http.post<Loginresponse>(this.urlPostPosturasRoja, values)
    }
+
+   
+   cargarCruces(id_usuario){
+    console.log("mis_cruces");
+    console.log("En el service " + this.urlGetMisCruces+id_usuario)
+    return this._http.get<getUserOne>(this.urlGetMisCruces+id_usuario);
+  }
+
+
 }

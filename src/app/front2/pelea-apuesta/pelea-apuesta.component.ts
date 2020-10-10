@@ -67,9 +67,11 @@ export class PeleaApuestaComponent implements OnInit {
     id_tb_posturas1: "",//
     id_apuesta: "",//
     id_usuario_V: "",//
+    nombre_V:"",
     color_Apuesta_Verde: "",//
     monto_V: "",//
     id_usuario_R: "",
+    nombre_R:"",
     color_Apuesta_Rojo: "",
     monto_R: "",
     fecha:""
@@ -123,6 +125,7 @@ export class PeleaApuestaComponent implements OnInit {
     var fecha = new Date();
     this.posturaGuardar1.id_tb_posturas1="";
     this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.nombre_V=this.localStorageUserNombre,
     this.posturaGuardar1.color_Apuesta_Verde="verde",
     this.posturaGuardar1.monto_V="1000",
     this.posturaGuardar1.id_apuesta=this.id,
@@ -141,10 +144,12 @@ export class PeleaApuestaComponent implements OnInit {
     var fecha = new Date();
     this.posturaGuardar1.id_tb_posturas1="";
     this.posturaGuardar1.id_usuario_V=this.localStorageUserId,
+    this.posturaGuardar1.nombre_V=this.localStorageUserNombre,
     this.posturaGuardar1.color_Apuesta_Verde="verde",
     this.posturaGuardar1.monto_V="2000",
     this.posturaGuardar1.id_apuesta=this.id,
     this.posturaGuardar1.id_usuario_R="",
+    this.posturaGuardar1.nombre_R="",
     this.posturaGuardar1.color_Apuesta_Rojo="0",
     this.posturaGuardar1.monto_R="",
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
@@ -165,6 +170,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R="",
     this.posturaGuardar1.color_Apuesta_Rojo="0",
     this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.nombre_V=this.localStorageUserNombre,
+    this.posturaGuardar1.nombre_R="",
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -183,6 +190,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R="",
     this.posturaGuardar1.color_Apuesta_Rojo="0",
     this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.nombre_V=this.localStorageUserNombre,
+    this.posturaGuardar1.nombre_R="",
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -201,6 +210,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R="",
     this.posturaGuardar1.color_Apuesta_Rojo="0",
     this.posturaGuardar1.monto_R="",
+    this.posturaGuardar1.nombre_V=this.localStorageUserNombre,
+    this.posturaGuardar1.nombre_R="",
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePostura(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -219,6 +230,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
     this.posturaGuardar1.color_Apuesta_Rojo="rojo",
     this.posturaGuardar1.monto_R="1000",
+    this.posturaGuardar1.nombre_V="",
+    this.posturaGuardar1.nombre_R=this.localStorageUserNombre,
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -237,6 +250,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
     this.posturaGuardar1.color_Apuesta_Rojo="rojo",
     this.posturaGuardar1.monto_R="2000",
+    this.posturaGuardar1.nombre_V="",
+    this.posturaGuardar1.nombre_R=this.localStorageUserNombre,
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -255,6 +270,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
     this.posturaGuardar1.color_Apuesta_Rojo="rojo",
     this.posturaGuardar1.monto_R="3000",
+    this.posturaGuardar1.nombre_V="",
+    this.posturaGuardar1.nombre_R=this.localStorageUserNombre,
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -273,6 +290,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
     this.posturaGuardar1.color_Apuesta_Rojo="rojo",
     this.posturaGuardar1.monto_R="4000",
+    this.posturaGuardar1.nombre_V="",
+    this.posturaGuardar1.nombre_R=this.localStorageUserNombre,
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);
@@ -291,6 +310,8 @@ export class PeleaApuestaComponent implements OnInit {
     this.posturaGuardar1.id_usuario_R=this.localStorageUserId,
     this.posturaGuardar1.color_Apuesta_Rojo="rojo",
     this.posturaGuardar1.monto_R="5000",
+    this.posturaGuardar1.nombre_V="",
+    this.posturaGuardar1.nombre_R=this.localStorageUserNombre,
     this.posturaGuardar1.fecha=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+"-"+fecha.getMinutes()+":"+fecha.getSeconds();
     this._servicio.savePosturaRoja(this.posturaGuardar1).subscribe(response => {
     console.log("El server Response" + response);

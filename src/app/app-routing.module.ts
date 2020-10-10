@@ -7,9 +7,11 @@ import { ListarUsuariosComponent } from './front1/listar-usuarios/listar-usuario
 import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
 import { LoginComponent } from './front1/login/login.component';
 import { PeleaApuestaComponent } from './front2/pelea-apuesta/pelea-apuesta.component';
+import { MisCrucesComponent } from './front2/mis-cruces/mis-cruces.component';
 
 
 const routes: Routes = [
+  { path: 'mis_cruces', component: MisCrucesComponent},
   { path: 'pelea/:id', component: PeleaApuestaComponent },
   { path: 'login', component: LoginComponent },
   //{ path: 'adminUsuario/:nombreUsuario', component: UsuarioComponent },
