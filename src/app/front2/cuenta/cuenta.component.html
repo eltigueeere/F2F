@@ -1,0 +1,42 @@
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <app-navbar-f2></app-navbar-f2>  <!--no puja--> 
+                <app-aside></app-aside> <!--pujamucho-->
+                <!--WEB-->
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Saldo para juagar</th>
+                        <th scope="col">Ganancias</th>
+                        <th scope="col">En trancito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <!--<th scope="row">al</th>-->
+                        <td>10000</td>
+                        <td>7000</td>
+                        <td>3000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--Abonar Cobrar-->
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="depocito()">Hacer depocito</button>                
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="retiro()">Hacer Retiro</button>
+                    </div>
+                </div>                
+                <div *ngIf="aMostrar; then depocitar else retirar"></div>
+                <ng-template #depocitar><app-depocito></app-depocito></ng-template>
+                <ng-template #retirar><app-retiro></app-retiro></ng-template>
+                <!--WEB-->
+            <app-footer-f2></app-footer-f2>   <!--no puja--> 
+        </div>
+    </div> 
+</div>

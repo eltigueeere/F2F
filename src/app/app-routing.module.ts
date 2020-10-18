@@ -8,9 +8,11 @@ import { UsuarioComponent } from './front2/panel/usuario/usuario.component';
 import { LoginComponent } from './front1/login/login.component';
 import { PeleaApuestaComponent } from './front2/pelea-apuesta/pelea-apuesta.component';
 import { MisCrucesComponent } from './front2/mis-cruces/mis-cruces.component';
+import { CuentaComponent } from './front2/cuenta/cuenta.component';
 
 
 const routes: Routes = [
+  { path: 'cuenta', component: CuentaComponent },
   { path: 'mis_cruces', component: MisCrucesComponent},
   { path: 'pelea/:id', component: PeleaApuestaComponent },
   { path: 'login', component: LoginComponent },

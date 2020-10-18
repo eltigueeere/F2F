@@ -1,0 +1,22 @@
+<br><br>
+<div class="container">
+
+    <p>
+    indicar la cantidad a depocitar y esperar a que sea reflejado en su cuenta F2F hacer el depocito a la cuenta BBVA numero de cuenta XXXX_XXXX XXXX_XXXX XXXX_XXXX
+    con la referecia que se le jenerarar al confirmar su depocoto 
+    </p>
+    <form class="formGroup" [formGroup]="signupForm" (ngSubmit)="depocitoSumit(signupForm.value)">
+      <input class="form-control " formControlName="cantidadDepocito" type="number" placeholder="Cantidad cerrada ej: 1000" aria-label="">
+      <br>
+      <button class="btn btn-success " type="button" (click)="depocito()">Genera Tu Referencia</button>
+      <br>
+      <br>
+      <div *ngIf="referencia">
+        <p>Tu referencia es: {{referencia}}</p>
+      </div>
+      <br><br>
+      <button class="btn btn-outline-primary " [disabled] = "signupForm.invalid"  type="submit" >Confirmar depocito</button>
+      <br>
+    </form>
+<br>
+</div>

@@ -23,6 +23,9 @@ import { FooterF2Component } from './front2/layout/footer-f2/footer-f2.component
 import { NavbarF2Component } from './front2/layout/navbar-f2/navbar-f2.component';
 import { PeleaApuestaComponent } from './front2/pelea-apuesta/pelea-apuesta.component';
 import { MisCrucesComponent } from './front2/mis-cruces/mis-cruces.component';
+import { CuentaComponent } from './front2/cuenta/cuenta.component';
+import { DepocitoComponent } from './front2/depocito/depocito.component';
+import { RetiroComponent } from './front2/retiro/retiro.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { MisCrucesComponent } from './front2/mis-cruces/mis-cruces.component';
     FooterF2Component,
     NavbarF2Component,
     PeleaApuestaComponent,
-    MisCrucesComponent
+    MisCrucesComponent,
+    CuentaComponent,
+    DepocitoComponent,
+    RetiroComponent
   ],
   imports: [
     MatSliderModule,
